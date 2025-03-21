@@ -51,9 +51,9 @@ class MyDouble{
         return size;
     }
     public void remove(int key){
-        if(key == first.data){
+        if(key == first.data){//if key in first
             removeFirst();
-        }else if(key == last.data){
+        }else if(key == last.data){//if key in last
             removeLast();
         }else{
             Node current = first.next;
