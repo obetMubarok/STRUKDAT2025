@@ -60,7 +60,7 @@ public class DemoQueue {
         
         my.delete();//0
         my.delete();//1
-        
+        my.insert(100);
         
         my.display();
     }
