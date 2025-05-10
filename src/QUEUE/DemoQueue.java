@@ -39,7 +39,7 @@ class MyQueue{
             if(front<=rear){
                 for(int i=front; i<=rear; i++)
                     System.out.print(array[i]+" ");
-            }else{
+            }else{//circular
                 for(int i=front; i<maxSize; i++){
                     System.out.print(array[i]+" ");
                 }
@@ -52,6 +52,7 @@ class MyQueue{
 }
 public class DemoQueue {
     public static void main(String[] args) {
+        
         MyQueue my = new MyQueue(3);
                 
         my.insert(5);//0
