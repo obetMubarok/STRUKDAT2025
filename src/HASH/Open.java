@@ -43,7 +43,7 @@ class Hash{
         }
     }
     public boolean find(int key){
-        return array[hashFunction(key)] == key;//false
+        return array[hashFunction(key)] == key;
     }
     public boolean findOpen(int key){
         int index = hashFunction(key);
