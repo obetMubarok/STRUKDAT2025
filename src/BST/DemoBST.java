@@ -57,8 +57,8 @@ class MyBST {
     }
 
     public Node getSuccesor(Node del) {
-        Node current = del.right;
-        while (current.left != null) {
+        Node current = del.right;//kanan 1 kali
+        while (current.left != null) {//ke kiri sampai ujung
             current = current.left;
         }
         return current;
@@ -79,7 +79,8 @@ class MyBST {
 
         //menentukan node yang dihapus(current) dan nilai right
         while (key != current.data) {
-            parent = current;
+            parent = current;//parent mengikuti current
+            //current pindah ke kanan atau ke kiri
             if (key > current.data) {//belok kanan
                 right = true;
                 current = current.right;
@@ -99,6 +100,7 @@ class MyBST {
                 parent.left = null;
             }
         } 
+        
         //2.a punya anak kanan
         else if (current.right != null) {
             if (current == root) {
@@ -109,6 +111,7 @@ class MyBST {
                 parent.left = current.right;
             }
         } 
+        
         //2.b punya anak kiri
         else if (current.left != null) {
             if (current == root) {
@@ -119,10 +122,11 @@ class MyBST {
                 parent.left = current.left;
             }
         } 
+        
         //3. punya 2 anak
         else {
-            Node successor = getSuccesor(current);
-            delete(successor.data);
+            Node successor = getSuccesor(current);//pengganti
+            delete(successor.data);//hapus successor dari BST
             if (current == root) {
                 root.data = successor.data;
             } else if (right) {
