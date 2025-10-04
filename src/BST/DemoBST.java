@@ -2,36 +2,33 @@ package BST;
 
 class Node {
 
-    int data;//
-    Node right;//menunjuk ke node kanan
-    Node left;//menunjuk ke node kiri\
+    int data;
+    Node right;
+    Node left;
 
     public Node(int data) {
         this.data = data;
     }
-
 }
 
 class MyBST {
-
     Node root;
-
     public void insert(int key) {
         Node newNode = new Node(key);
-        if (root == null) {//jika BSt masih kosong
+        if (root == null) {
             root = newNode;
-        } else {//jika tidak kosong
+        } else {
             Node current = root;
             while (true) {
-                if (key > current.data) {//belok kanan
+                if (key > current.data) {
                     if (current.right == null) {
-                        current.right = newNode;//tempel nodebaru
+                        current.right = newNode;
                         break;
                     }
                     current = current.right;
-                } else {//belok kiri
+                } else {
                     if (current.left == null) {
-                        current.left = newNode;//tempel node baru
+                        current.left = newNode;
                         break;
                     }
                     current = current.left;
@@ -57,8 +54,8 @@ class MyBST {
     }
 
     public Node getSuccesor(Node del) {
-        Node current = del.right;//kanan 1 kali
-        while (current.left != null) {//ke kiri sampai ujung
+        Node current = del.right;
+        while (current.left != null) {
             current = current.left;
         }
         return current;
@@ -77,20 +74,18 @@ class MyBST {
         Node parent = root;
         boolean right = false;
 
-        //menentukan node yang dihapus(current) dan nilai right
+        
         while (key != current.data) {
-            parent = current;//parent mengikuti current
-            //current pindah ke kanan atau ke kiri
-            if (key > current.data) {//belok kanan
+            parent = current;
+            if (key > current.data) {
                 right = true;
                 current = current.right;
-            } else {//belok kiri
+            } else {
                 right = false;
                 current = current.left;
             }
         }
 
-        //1. node daun / tidak punya anak
         if (current.right == null && current.left == null) {
             if (current == root) {
                 root = null;
@@ -101,7 +96,6 @@ class MyBST {
             }
         } 
         
-        //2.a punya anak kanan
         else if (current.right != null) {
             if (current == root) {
                 root = current.right;
@@ -112,7 +106,6 @@ class MyBST {
             }
         } 
         
-        //2.b punya anak kiri
         else if (current.left != null) {
             if (current == root) {
                 root = current.left;
@@ -123,10 +116,9 @@ class MyBST {
             }
         } 
         
-        //3. punya 2 anak
         else {
-            Node successor = getSuccesor(current);//pengganti
-            delete(successor.data);//hapus successor dari BST
+            Node successor = getSuccesor(current);
+            delete(successor.data);
             if (current == root) {
                 root.data = successor.data;
             } else if (right) {

@@ -1,15 +1,15 @@
 package DOUBLELINKEDLIST;
 class MyDouble{
-    Node first;//menunjuk node paling depan
-    Node last;//menunjuk node paling belakang
-    int size = 0;// menyimpan jumlah node yang tersimpan
+    Node first;
+    Node last;
+    int size = 0;
     
     public void addFirst(int data){
         Node newNode = new Node(data);
-        if(first == null){//if Empty
+        if(first == null){
             first = newNode;
             last = newNode;
-        }else{//not empty
+        }else{
             newNode.next = first;
             first.prev = newNode;
             first = newNode;
@@ -18,9 +18,9 @@ class MyDouble{
     }
     public void addLast(int data){
         Node newNode = new Node(data);
-        if(first == null){//if empty
+        if(first == null){
             first = last = newNode;
-        }else{//not empty
+        }else{
             last.next = newNode;
             newNode.prev = last;
             last = newNode;
@@ -51,9 +51,9 @@ class MyDouble{
         return size;
     }
     public void remove(int key){
-        if(key == first.data){//if key in first
+        if(key == first.data){
             removeFirst();
-        }else if(key == last.data){//if key in last
+        }else if(key == last.data){
             removeLast();
         }else{
             Node current = first.next;
