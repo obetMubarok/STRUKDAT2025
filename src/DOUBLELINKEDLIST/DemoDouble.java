@@ -1,4 +1,14 @@
 package DOUBLELINKEDLIST;
+class Node{
+    int data;
+    Node next;
+    Node prev;
+
+    public Node(int data) {
+        this.data = data;
+    }
+    
+}
 class MyDouble{
     Node first;
     Node last;
